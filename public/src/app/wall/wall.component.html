@@ -1,0 +1,41 @@
+<p>
+  wall works!
+</p>
+
+<!-- {{ messages | json }} -->
+  <!-- <h3 *ngIf="currentUser">Welcome {{currentUser.username}}</h3> -->
+  <button (click)="logout()">logout</button>
+
+  <!-- <form (submit)="postMessage()">
+    <label>Post a Message: <input type="text" name="message" [(ngModel)]="newMessage.message"></label>
+    <input type="submit" value="Post Message">
+
+  </form> -->
+  {{ username | json }}
+  <h3>Hi! {{ username.username }}</h3>
+<button (click)="createmessage()">New Question</button>
+
+<div *ngFor="let thismess of messages; let i = index">
+  <p style="color:red;">Question:{{ thismess.message }}</p>
+  <p>Description: {{ thismess.desc }}</p>
+  <p>by:{{ thismess._user.username }}</p>
+  <p>Number of Answers {{ thismess.comment.length }}</p>
+  <button (click)="showmessage(thismess._id)">Show Question</button>
+  <!-- <button (click)="ilikeit(thismess._id)">Like Message!</button> -->
+  <h4>Add an Answer on this Question:</h4>
+
+  <p>Message Likes:{{ thismess.count.length }}</p>
+  <button (click)="addanswer(thismess._id)">Add Answer!</button>
+  <fieldset *ngFor="let comments of thismess.comment">
+    <p>{{ comments.comment }}</p>
+    <p>by: {{ comments._user.username }}</p>
+    <p>{{comments.support}}</p>
+    <p>Comment likes: {{ comments.likes.length }}</p>
+    <button (click)="commentliking(thismess._id,comments._id)">like this comment</button>
+  </fieldset>
+  <form (submit)="createcomment(formData, thismess._id)" #formData="ngForm">
+    <input type="text" ngModel name="content">
+    <input type="submit" name="" value="Submit">
+  </form>
+<br>
+</div>

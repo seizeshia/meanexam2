@@ -1,0 +1,20 @@
+<p>
+  messagedetails works!
+</p>
+{{ messages | json }}
+<a [routerLink]="['']">Home</a>
+<button (click)="logout()">Logout</button>
+<button (click)="addanswer(messages._id)">Add an Answer</button>
+<div>
+  <p>by: {{messages._user.username}}</p>
+ <p>Message: {{ messages.message }}</p>
+  <p>Description:{{ messages.desc }} </p>
+  <fieldset *ngFor="let comment of messages.comment">
+    <p>by: {{ comment._user.username }}</p>
+    <p>likes: {{ comment.likes.length }}</p>
+    <p>comment: {{ comment.comment }}</p>
+    <button (click)="commentliking(messages._id,comment._id)">like comment</button>
+
+  </fieldset>
+
+</div>

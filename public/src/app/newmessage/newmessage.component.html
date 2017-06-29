@@ -1,0 +1,11 @@
+<p>
+  newmessage works!
+</p>
+<p></p>
+<form (submit)="postMessage()">
+  <label>Post a Message: <input type="text" name="message" [(ngModel)]="newMessage.message" ng-minlength="5"></label>
+  <label>Description(optional):<input type="text" name="desc" [(ngModel)]='newMessage.desc'></label>
+  <input type="submit" value="Post Message">
+  <button (click)="cancelpressed()">Cancel</button>
+
+</form>

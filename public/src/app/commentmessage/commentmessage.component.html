@@ -1,0 +1,18 @@
+<p>
+  commentmessage works!
+</p>
+<button (click)="cancel()">Home</button>
+<button (click)="tomessage(messages._id)">Go Back to Question</button>
+<!-- {{ messages | json }} -->
+<div>
+  <p>Question: {{messages.message}}</p>
+  <p>Description: {{messages.desc}}</p>
+  <p>By:{{messages._user.username}}</p>
+</div>
+<form (submit)="createcomment(formData, messages._id)" #formData="ngForm">
+  <h2>Your Answer:</h2>
+  <p>Answer:<input type="text"  ngModel name="content"></p>
+  <p>Supportive Material: <input type="text" ngModel name="support" ng-minlength="5"></p>
+  <input type="submit" name="" value="Submit">
+  <button (click)="cancel()">Cancel</button>
+</form>
